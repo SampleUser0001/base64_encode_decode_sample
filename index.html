@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Base64 Encode/Decode</title>
+    <script>
+        function encodeBase64() {
+            var input = document.getElementById("encodeInputText").value;
+            var encoded = btoa(input);
+            document.getElementById("encodedText").value = encoded;
+        }
+
+        function decodeBase64() {
+            var encoded = document.getElementById("decodeInputText").value;
+            var decoded = atob(encoded);
+            document.getElementById("decodedText").value = decoded;
+        }
+    </script>
+</head>
+<body>
+    <h1>Base64 Encode/Decode</h1>
+    <h2>Encode</h2>
+    <label for="inputText">Input Text:</label>
+    <textarea type="text" id="encodeInputText" rows="5" cols="40"></textarea><br>
+    <button onclick="encodeBase64()">Encode</button><br>
+    <label for="encodedText">Encoded Text:</label>
+    <input type="text" id="encodedText" size="50" readonly>
+
+    <h2>Decode</h2>
+    <label for="decodeInputText">Input Text:</label>
+    <input type="text" id="decodeInputText" size="50">
+    <br>
+    <button onclick="decodeBase64()">Decode</button><br>
+    <label for="decodedText">Decoded Text:</label>
+    <textarea type="text" id="decodedText" rows="5" cols="40" readonly></textarea>
+
+    <h1>Link</h1>
+    <a href="./multi_item.html">複数項目の場合</a>
+</body>
+</html>

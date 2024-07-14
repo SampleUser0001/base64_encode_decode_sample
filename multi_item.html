@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Base64 Encode/Decode Multi-Item</title>
+    <script>
+        function encodeBase64() {
+            const input_a = document.getElementById("encodeInputText_a").value;
+            const input_b = document.getElementById("encodeInputText_b").value;
+            const input = {
+                a: input_a,
+                b: input_b
+            };
+            const encoded = btoa(JSON.stringify(input));
+            document.getElementById("encodedText").value = encoded;
+        }
+
+        function decodeBase64() {
+            const encoded = document.getElementById("decodeInputText").value;
+            const decodedText = atob(encoded);
+            console.info(decodedText);
+            const decoded = JSON.parse(decodedText)
+
+            document.getElementById("decodedText_a").value = decoded.a;
+            document.getElementById("decodedText_b").value = decoded.b;
+        }
+    </script>
+</head>
+<body>
+    <h1>Base64 Encode/Decode Multi-Item</h1>
+    <h2>Encode</h2>
+    <label for="inputText">Input Text:</label><br>
+    <input type="text" id="encodeInputText_a"><br>
+    <input type="text" id="encodeInputText_b"><br>
+    <button onclick="encodeBase64()">Encode</button><br>
+    <label for="encodedText">Encoded Text:</label>
+    <input type="text" id="encodedText" size="50" readonly>
+
+    <h2>Decode</h2>
+    <label for="decodeInputText">Input Text:</label>
+    <input type="text" id="decodeInputText" size="50">
+    <br>
+    <button onclick="decodeBase64()">Decode</button><br>
+    <label for="decodedText">Decoded Text:</label><br>
+    <input type="text" id="decodedText_a"><br>
+    <input type="text" id="decodedText_b"><br>
+
+</body>
+</html>
